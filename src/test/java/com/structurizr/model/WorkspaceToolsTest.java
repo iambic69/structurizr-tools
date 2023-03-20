@@ -157,9 +157,9 @@ class WorkspaceToolsTest {
                 .sorted(Comparator.comparing(Section::getOrder))
                 .toList();
         Assertions.assertEquals(3, sections.size());
-        assertSection(sections.get(0), "\\00 Overview.adoc");
-        assertSection(sections.get(1), "\\01 System Context.adoc");
-        assertSection(sections.get(2), "\\02 Design.adoc");
+        assertSection(sections.get(0), "00 Overview.adoc");
+        assertSection(sections.get(1), "01 System Context.adoc");
+        assertSection(sections.get(2), "02 Design.adoc");
     }
 
     @Test
@@ -190,7 +190,7 @@ class WorkspaceToolsTest {
     private static List<Workspace> parseAcmeWorkspaces() throws StructurizrDslParserException {
         return List.of(
                 parseDslFile("workspaces/back-office.dsl"),
-                parseDslFile("workspaces/frontLine.dsl"),
+                parseDslFile("workspaces/frontline.dsl"),
                 parseDslFile("workspaces/finance.dsl")
         );
     }
