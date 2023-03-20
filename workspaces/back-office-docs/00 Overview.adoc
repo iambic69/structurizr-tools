@@ -1,0 +1,7 @@
+== Business Overview
+
+The Acme Back-Office IT System is designed to streamline business processes and improve efficiency for organizations. It consists of three key components: a customer data store, integration hub, and desktop client.
+
+The customer data store provides a centralized location for storing and managing customer data. This includes information such as contact details, purchase history, and preferences. The integration hub allows the Acme Back-Office IT System to integrate with other systems within the organization, such as accounting or inventory management systems. Finally, the desktop client provides a user-friendly interface for accessing and managing customer data.
+
+By centralizing customer data and streamlining business processes, the Acme Back-Office IT System can help organizations save time and reduce errors.

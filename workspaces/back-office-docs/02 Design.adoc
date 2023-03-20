@@ -1,0 +1,26 @@
+== Design
+
+The Acme Back-Office IT System is designed using a modern software architecture that emphasizes modularity and scalability.
+
+image::embed:Backofficesystem-Container[]
+
+The three key components of the system are:
+
+[horizontal]
+.CUSTOMER DATA STORE
+
+The customer data store is built using a popular relational database management system, such as MySQL or PostgreSQL. It allows for efficient querying and management of customer data.
+
+[horizontal]
+.INTEGRATION HUB
+
+The integration hub is built using a middleware framework, such as Apache Camel or MuleSoft. It enables real-time data exchange between the Acme Back-Office IT System and other systems within the organization.
+
+[horizontal]
+.DESKTOP CLIENT
+
+The desktop client is built using a modern user interface framework, such as React or Angular. It provides a responsive and intuitive user experience, allowing assessors to quickly access and manage customer data.
+
+To ensure security and compliance, the Acme Back-Office IT System includes a range of security features. This includes user authentication and authorization, encryption of sensitive data, and auditing of system activity.
+
+Overall, the Acme Back-Office IT System provides a comprehensive solution for managing customer data and streamlining business operations. With its centralized customer data store, integration hub, and user-friendly desktop client, the system can help organizations improve efficiency and reduce errors.

@@ -1,0 +1,7 @@
+== System Context
+
+The Acme Back-Office IT System is primarily used by assessors who need to access customer data to conduct assessments. Occasionally, administrators may also use the system to manage user accounts and perform other administrative tasks.
+
+image::embed:Backofficesystem-SystemContext[]
+
+The system is designed to be integrated with other systems within an organization. This includes systems such as accounting, inventory management, and customer relationship management (CRM) systems. The system is designed to be scalable and can handle large amounts of data.
