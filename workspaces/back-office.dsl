@@ -57,6 +57,6 @@ workspace "Acme back-office" "Core bespoke internal systems" {
             include *
             autolayout
         }
-        theme default
+        !include styles.dsl
     }
 }

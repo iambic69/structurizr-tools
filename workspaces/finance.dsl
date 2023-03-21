@@ -43,6 +43,6 @@ workspace "ACME finance" {
             include *
             autolayout
         }
-        theme default
+        !include styles.dsl
     }
 }

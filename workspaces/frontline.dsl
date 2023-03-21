@@ -33,6 +33,6 @@ workspace "Acme front-line systems" {
             include *
             autolayout
         }
-        theme default
+        !include styles.dsl
     }
 }
