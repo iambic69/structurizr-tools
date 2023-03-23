@@ -37,12 +37,12 @@ public class WorkspaceTools {
         };
         final Predicate<Element> isDefinitiveElement = Predicate.not(isDeclaredExternal);
 
-        // Collect all workspace elements not declared External
+        // Collect all workspace elements not declared External,
+        // recording the workspace name as a property on every element
         final Map<String, List<Element>> elements =
                 workspaces.stream()
-                        .map(Workspace::getModel)
-                        .map(Model::getElements)
-                        .flatMap(Collection::stream)
+                        .flatMap(workspace -> workspace.getModel().getElements().stream()
+                                .peek(element -> element.addProperty("workspace-name", workspace.getName())))
                         .filter(isDefinitiveElement)
                         .collect(Collectors.groupingBy(element -> element.getClass().getSimpleName()));
 

@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 class WorkspaceToolsTest {
@@ -169,6 +170,39 @@ class WorkspaceToolsTest {
         // The Finance UI Container with the definitive description should have been copied
         final Element webUI = workspace.getModel().getElementWithCanonicalName("Container://Finance system.Web user interface");
         Assertions.assertEquals("Modern web UI for finance system", webUI.getDescription());
+    }
+
+    @Test
+    public void givenSuccessfulMerge_workspaceDetailsCaptured() throws StructurizrDslParserException {
+        WorkspaceTools.merge(parseAcmeWorkspaces(), workspace.getModel());
+
+        // Collect all elements in the merged workspace, grouped by workspace name
+        final Function<Element, String> workspaceName = element -> element.getProperties().getOrDefault("workspace-name", "Missing");
+        final Map<String, List<Element>> elementsByWorkspace = workspace.getModel().getElements().stream()
+                .sorted(Comparator.comparing(Element::getCanonicalName))
+                .collect(Collectors.groupingBy(workspaceName));
+
+        if (false) {
+            // Print
+            elementsByWorkspace.forEach((name, elements) -> {
+                System.out.println("name = " + name);
+                elements.stream()
+                        .map(element -> "  " + element.getCanonicalName())
+                        .map(s -> "  " + s)
+                        .forEach(System.out::println);
+            });
+        }
+
+        // Assert that the elements merged from one workspace are as expected
+        final List<String> backOfficeElementNames = elementsByWorkspace.get("Acme back-office").stream()
+                .map(Element::getCanonicalName).toList();
+        Assertions.assertEquals(List.of(
+                "Container://Back-office system.Customer data store",
+                "Container://Back-office system.Desktop client",
+                "Container://Back-office system.Integration hub",
+                "Person://Assessor",
+                "SoftwareSystem://Back-office system"
+        ), backOfficeElementNames);
     }
 
     @Test
